@@ -31,5 +31,5 @@ class LlmChatClient:
         ]
         
         for chunk in self.client.stream(messages):
-            print(chunk, end='', flush=True)
+            print(chunk.content, end='', flush=True)
         
