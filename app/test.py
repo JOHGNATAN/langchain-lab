@@ -1,5 +1,5 @@
 # %%
-# from langchain_openai import openAI
+from langchain_openai import openAI
 import json
 
 # %%
