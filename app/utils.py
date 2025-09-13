@@ -1,5 +1,6 @@
 from langchain_openai import OpenAI
 from langchain_openai import ChatOpenAI
+from langchain.schema import AIMessage, HumanMessage, SystemMessage
 import json
 import os
 
@@ -15,12 +16,33 @@ class LlmChatClient:
     def __init__(self, modelo: str, criatividade: float):
         self.client = ChatOpenAI(model = modelo, temperature=criatividade)
 
-    def get_chat_answer(self, prompt):
-        messages = [
-            ("system", "You are a helpful assistant."),
-            ("user", prompt)
-        ]
+    def get_chat_answer(self):
+        # self.system_message = SystemMessage(content="You are a helpful AI assistant")
         
-        for chunk in self.client.stream(messages):
-            print(chunk.content, end='', flush=True)
+        self.history_chat = []
+
+        while True:
+            self.user_prompt = input("\nPrompt: ")
+            if self.user_prompt.lower() == "exit":
+                break
+
+            user_input = HumanMessage(content=self.user_prompt)
+
+            self.history_chat.append(user_input.content)
+
+            self.resposta = ""
+
+            for chunk in self.client.stream(self.user_prompt):
+                print(chunk.content, end='', flush=True)
+                self.resposta  += chunk.content 
+            
+            self.history_chat.append(self.resposta)
+
+        return print(self.history_chat)
+
+    def export_chat_history(self, chat_list: list):
+
+        for i in range(0, len(chat_list), 2):
+            print(i)
+            
         
