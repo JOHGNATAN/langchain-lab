@@ -4,4 +4,3 @@ venv/
 app/secrets/
 __pycache__/
 app/teste.py
-app/test.ipynb

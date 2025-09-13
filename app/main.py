@@ -1,7 +1,8 @@
-from utils import LlmCompletionClient, LlmChatClient
+from utils import LlmCompletionClient, LlmChatClient, load_secrets
 
 
 if __name__ == "__main__":
+    load_secrets()
     user_input = input("Enter your prompt: ")
 
     while True:
