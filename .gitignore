@@ -3,4 +3,4 @@
 venv/
 app/secrets/
 __pycache__/
-app/teste.py
+app/teste.ipynb
