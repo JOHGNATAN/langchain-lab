@@ -11,17 +11,6 @@ def load_secrets():
     os.environ["OPENAI_API_KEY"] = secrets["open_ai_key"]
 
 
-class LlmCompletionClient:
-    def __init__(self, modelo: str, criatividade: float):
-        self.client = OpenAI(model = modelo, temperature=criatividade)
-
-    def get_completion_answer(self, prompt):
-        
-        for chunk in self.client.stream(prompt):
-            print(chunk, end='', flush=True)
-
-
-
 class LlmChatClient:
     def __init__(self, modelo: str, criatividade: float):
         self.client = ChatOpenAI(model = modelo, temperature=criatividade)
