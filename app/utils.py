@@ -3,10 +3,12 @@ from langchain_openai import ChatOpenAI
 import json
 import os
 
-with open('secrets/secrets.json', 'r') as file:
-    secrets = json.load(file)
 
-os.environ["OPENAI_API_KEY"] = secrets["open_ai_key"]
+def load_secrets():
+    with open('secrets/secrets.json', 'r') as file:
+        secrets = json.load(file)
+
+    os.environ["OPENAI_API_KEY"] = secrets["open_ai_key"]
 
 
 class LlmCompletionClient:
