@@ -54,9 +54,15 @@ cd seu-repositorio
 
 2. Crie e ative um ambiente virtual:  
 python -m venv venv  
-No macOS/Linux: source venv/bin/activate  
-No Windows: venv\Scripts\activate  
+No macOS/Linux:
+```cmd 
+source venv/bin/activate 
+```
 
+No Windows: 
+```cmd
+venv\Scripts\activate  
+```
 3. Instale as dependências:  
 ```cmd
 pip install -r requirements.txt  
