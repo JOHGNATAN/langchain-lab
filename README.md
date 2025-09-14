@@ -53,7 +53,10 @@ git clone https://github.com/JOHGNATAN/langchain-lab
 cd seu-repositorio  
 
 2. Crie e ative um ambiente virtual:  
+```cmd
 python -m venv venv  
+```
+
 No macOS/Linux:
 ```cmd 
 source venv/bin/activate 
