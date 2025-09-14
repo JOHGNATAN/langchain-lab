@@ -1,0 +1,67 @@
+# Chatbot com LangChain e GPT-4o-mini
+
+Este projeto é um chatbot simples construído em Python utilizando a biblioteca LangChain e o modelo GPT-4o-mini da OpenAI. O chatbot permite conversas via terminal e exporta o histórico de perguntas e respostas em arquivos JSON organizados por data.
+
+---
+
+## Estrutura do Projeto
+
+│ ├── history_chats/ # Histórico das conversas exportadas
+│ ├── secrets/ # Arquivos com chaves secretas
+│ ├── main.py # Script principal para rodar o chatbot
+│ └── utils.py # Funções auxiliares e classe do chatbot
+├── venv/ # Ambiente virtual (não incluído no Git)
+├── .gitignore
+└── requirements.txt
+
+---
+
+## Funcionalidades
+
+- Interação em tempo real com um modelo de linguagem GPT-4o-mini.
+- Histórico da conversa armazenado em formato JSON.
+- Configuração do modelo e temperatura (criatividade) personalizáveis.
+- Facilidade para extensão e integração com outras interfaces.
+
+---
+
+## Tecnologias Utilizadas
+
+- Python 3.13.5
+- [LangChain](https://python.langchain.com/)
+- [LangChain OpenAI](https://python.langchain.com/en/latest/modules/llms/integrations/openai.html)
+- OpenAI GPT-4o-mini (via API)
+
+---
+
+## Como usar
+
+### Pré-requisitos
+
+- Ter uma chave de API da OpenAI.
+- Python 3.x instalado.
+- Requirements.txt
+
+### Instalação
+
+1. Clone este repositório:
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
+
+2. Crie e ative um ambiente virtual:
+
+python -m venv venv
+source venv/bin/activate     # macOS/Linux
+venv\Scripts\activate        # Windows
+
+3. Instale as dependências:
+
+pip install -r requirements.txt
+
+4. Configure sua chave API da OpenAI:
+
+{
+  "open_ai_key": "sua-chave-aqui"
+}
