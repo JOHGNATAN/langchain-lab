@@ -1,0 +1,14 @@
+[
+    {
+        "User": "teste1",
+        "IA": "Olá! Como posso ajudar você hoje?"
+    },
+    {
+        "User": "teste2",
+        "IA": "Olá! Como posso ajudar você hoje?"
+    },
+    {
+        "User": "teste3",
+        "IA": "Parece que você está testando algo. Como posso ajudar você hoje?"
+    }
+]
