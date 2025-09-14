@@ -6,13 +6,17 @@ Este projeto é um chatbot simples construído em Python utilizando a biblioteca
 
 ## Estrutura do Projeto
 
-│ ├── history_chats/ # Histórico das conversas exportadas
-│ ├── secrets/ # Arquivos com chaves secretas
-│ ├── main.py # Script principal para rodar o chatbot
-│ └── utils.py # Funções auxiliares e classe do chatbot
-├── venv/ # Ambiente virtual (não incluído no Git)
-├── .gitignore
-└── requirements.txt
+LANGCHAIN/  
+│  
+├── app/  
+│   ├── history_chats/        # Histórico das conversas exportadas  
+│   ├── secrets/              # Arquivos com chaves secretas  
+│   ├── main.py               # Script principal para rodar o chatbot  
+│   └── utils.py              # Funções auxiliares e classe do chatbot  
+├── venv/                     # Ambiente virtual (não incluído no Git)  
+├── .gitignore  
+└── requirements.txt  
+
 
 ---
 
