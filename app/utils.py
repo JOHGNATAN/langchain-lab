@@ -29,13 +29,13 @@ class LlmChatClient:
 
             self.history_chat.append(user_input.content)
 
-            self.resposta = ""
+            resposta = ""
 
             for chunk in self.client.stream(self.user_prompt):
                 print(chunk.content, end='', flush=True)
-                self.resposta  += chunk.content 
+                resposta  += chunk.content 
             
-            self.history_chat.append(self.resposta)
+            self.history_chat.append(resposta)
 
         return self.history_chat
 

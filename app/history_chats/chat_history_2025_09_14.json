@@ -1,18 +1,14 @@
 [
     {
-        "User": "qual a data de hoje?",
-        "IA": "Hoje é 27 de outubro de 2023."
+        "User": "teste1",
+        "IA": "Olá! Como posso ajudar você hoje?"
     },
     {
-        "User": "",
-        "IA": "Hello! How can I assist you today?"
+        "User": "teste2",
+        "IA": "Olá! Como posso ajudar você hoje?"
     },
     {
-        "User": "me fale em poucas palavras sobre o spark",
-        "IA": "Apache Spark é uma plataforma de processamento de dados em grande escala, projetada para ser rápida e fácil de usar. Ele permite o processamento de dados em memória, o que acelera tarefas de análise e aprendizado de máquina. Spark suporta várias linguagens de programação, como Scala, Java, Python e R, e é amplamente utilizado em ambientes de big data para processamento distribuído."
-    },
-    {
-        "User": "quem é o fundador do databricks?",
-        "IA": "O Databricks foi fundado por um grupo de pesquisadores e engenheiros da Universidade da Califórnia, Berkeley, incluindo Ali Ghodsi, Matei Zaharia, Reynold Xin, Arsalan Tavakoli, entre outros. O projeto começou como uma extensão do Apache Spark, e a empresa foi oficialmente fundada em 2013. Ali Ghodsi é o CEO da Databricks."
+        "User": "teste3",
+        "IA": "Parece que você está testando algo. Como posso ajudar você hoje?"
     }
 ]
