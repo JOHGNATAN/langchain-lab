@@ -54,6 +54,7 @@ class LlmChatClient:
 
         with open(f"{self.destino}", "w", encoding='utf-8') as file:
             self.export_file = json.dump(self.history, file, ensure_ascii=False, indent=4)
+            
 
         
             
