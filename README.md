@@ -70,7 +70,7 @@ source venv/bin/activate
 venv\Scripts\activate  
 ```
 4. Instale as dependências:  
-```cmd
+```json
 pip install -r requirements.txt  
 ```
 
