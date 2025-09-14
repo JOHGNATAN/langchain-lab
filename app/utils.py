@@ -40,11 +40,15 @@ class LlmChatClient:
         return self.history_chat
 
     def export_chat_history(self, chat_list: list):
+        
+        for i in range(0, len(chat_list), 2):
+            self.pergunta = chat_list[i]
+            self.resposta = chat_list[i + 1]
 
-        self.history.append({
-                            'User': self.pergunta,
-                            'IA': self.resposta
-                        })
+            self.history.append({
+                                'User': self.pergunta,
+                                'IA': self.resposta
+                            })
         
         self.destino = f"history_chats/chat_history_{datetime.now().strftime('%Y_%m_%d')}.json"
 
