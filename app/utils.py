@@ -44,5 +44,6 @@ class LlmChatClient:
 
         for i in range(0, len(chat_list), 2):
             print(i)
+            print(i+1)
             
         
