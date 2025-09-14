@@ -39,29 +39,26 @@ Este projeto é um chatbot simples construído em Python utilizando a biblioteca
 ### Pré-requisitos
 
 - Ter uma chave de API da OpenAI.
-- Python 3.x instalado.
+- Python 3.13.5 instalado.
 - Requirements.txt
 
 ### Instalação
 
-1. Clone este repositório:
+1. Clone este repositório:  
+git clone https://github.com/seu-usuario/seu-repositorio.git  
+cd seu-repositorio  
 
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+2. Crie e ative um ambiente virtual:  
+python -m venv venv  
+No macOS/Linux: source venv/bin/activate  
+No Windows: venv\Scripts\activate  
 
-2. Crie e ative um ambiente virtual:
+3. Instale as dependências:  
+pip install -r requirements.txt  
 
-python -m venv venv
-source venv/bin/activate     # macOS/Linux
-venv\Scripts\activate        # Windows
-
-3. Instale as dependências:
-
-pip install -r requirements.txt
-
-4. Configure sua chave API da OpenAI:
-
+4. Configure sua chave API da OpenAI:  
+Crie o arquivo `app/secrets/secrets.json` com o conteúdo:  
+```json
 {
   "open_ai_key": "sua-chave-aqui"
 }
