@@ -1,9 +1,8 @@
-from langchain_openai import OpenAI
 from langchain_openai import ChatOpenAI
-from langchain.schema import AIMessage, HumanMessage, SystemMessage
+from langchain.schema import HumanMessage, SystemMessage
+from datetime import datetime
 import json
 import os
-
 
 def load_secrets():
     with open('secrets/secrets.json', 'r') as file:
@@ -17,7 +16,7 @@ class LlmChatClient:
         self.client = ChatOpenAI(model = modelo, temperature=criatividade)
 
     def get_chat_answer(self):
-        # self.system_message = SystemMessage(content="You are a helpful AI assistant")
+        self.system_message = SystemMessage(content="You are a helpful AI assistant")
         
         self.history_chat = []
 
@@ -38,11 +37,24 @@ class LlmChatClient:
             
             self.history_chat.append(self.resposta)
 
-        return print(self.history_chat)
+        return self.history_chat
 
-    def export_chat_history(self, chat_list: list):
+    def export_chat_history(self, history_chat: list):
+        self.history = []
+        for i in range(0, len(history_chat), 2):
+            self.pergunta = history_chat[i]
+            self.resposta = history_chat[i+1]
 
-        for i in range(0, len(chat_list), 2):
-            print(i)
+            self.history.append({
+                                'User': self.pergunta,
+                                'IA': self.resposta
+                            })
+        
+        self.destino = f"history_chats/chat_history_{datetime.now().strftime("%Y_%m_%d")}.json"
+
+        with open(f"{self.destino}", "w", encoding='utf-8') as file:
+            self.export_file = json.dump(self.history, file, ensure_ascii=False, indent=4)
+
+        
             
         
