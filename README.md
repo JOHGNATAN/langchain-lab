@@ -59,13 +59,13 @@ python -m venv venv
 ```
 3. Ativação:
  
-## No macOS/Linux:
+### No macOS/Linux:
 ```bash
 source venv/bin/activate 
 ```
 
 
-## No Windows: 
+### No Windows: 
 ```bash
 venv\Scripts\activate  
 ```
