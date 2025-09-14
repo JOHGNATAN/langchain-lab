@@ -60,6 +60,7 @@ No Windows: venv\Scripts\activate
 3. Instale as dependências:  
 ```cmd
 pip install -r requirements.txt  
+```
 
 4. Configure sua chave API da OpenAI:  
 Crie o arquivo `app/secrets/secrets.json` com o conteúdo:  
