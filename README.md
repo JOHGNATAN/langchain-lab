@@ -49,7 +49,7 @@ LANGCHAIN/
 ### Instalação
 
 1. Clone este repositório:  
-git clone https://github.com/seu-usuario/seu-repositorio.git  
+git clone https://github.com/JOHGNATAN/langchain-lab  
 cd seu-repositorio  
 
 2. Crie e ative um ambiente virtual:  
