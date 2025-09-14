@@ -9,10 +9,10 @@ Este projeto é um chatbot simples construído em Python utilizando a biblioteca
 LANGCHAIN/  
 │  
 ├── app/  
-│   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── history_chats/        # Histórico das conversas exportadas  
-│   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── secrets/              # Arquivos com chaves secretas  
-│   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── main.py               # Script principal para rodar o chatbot  
-│   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── utils.py              # Funções auxiliares e classe do chatbot  
+│   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── history_chats/        # Histórico das conversas exportadas  
+│   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── secrets/              # Arquivos com chaves secretas  
+│   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── main.py               # Script principal para rodar o chatbot  
+│   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── utils.py              # Funções auxiliares e classe do chatbot  
 ├── venv/                     # Ambiente virtual (não incluído no Git)  
 ├── .gitignore  
 └── requirements.txt  
