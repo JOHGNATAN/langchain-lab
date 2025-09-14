@@ -54,6 +54,8 @@ cd seu-repositorio
 
 2. Crie e ative um ambiente virtual:  
 ```cmd
+
+3. Ativação:  
 python -m venv venv  
 ```
 
@@ -66,12 +68,12 @@ No Windows:
 ```cmd
 venv\Scripts\activate  
 ```
-3. Instale as dependências:  
+4. Instale as dependências:  
 ```cmd
 pip install -r requirements.txt  
 ```
 
-4. Configure sua chave API da OpenAI:  
+5. Configure sua chave API da OpenAI:  
 Crie o arquivo `app/secrets/secrets.json` com o conteúdo:  
 ```json
 {
