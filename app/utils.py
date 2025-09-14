@@ -41,22 +41,15 @@ class LlmChatClient:
 
     def export_chat_history(self, chat_list: list):
 
-<<<<<<< HEAD
-        for i in range(0, len(chat_list), 2):
-            print(i)
-=======
-            self.history.append({
-                                'User': self.pergunta,
-                                'IA': self.resposta
-                            })
+        self.history.append({
+                            'User': self.pergunta,
+                            'IA': self.resposta
+                        })
         
-        self.destino = f"history_chats/chat_history_{datetime.now().strftime("%Y_%m_%d")}.json"
+        self.destino = f"history_chats/chat_history_{datetime.now().strftime('%Y_%m_%d')}.json"
 
         with open(f"{self.destino}", "w", encoding='utf-8') as file:
             self.export_file = json.dump(self.history, file, ensure_ascii=False, indent=4)
-            
 
-        
->>>>>>> langchain_feature
             
         
