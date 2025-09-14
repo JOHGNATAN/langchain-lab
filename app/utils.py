@@ -41,6 +41,8 @@ class LlmChatClient:
 
     def export_chat_history(self, chat_list: list):
         
+        self.history = []
+
         for i in range(0, len(chat_list), 2):
             self.pergunta = chat_list[i]
             self.resposta = chat_list[i + 1]
