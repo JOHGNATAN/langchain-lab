@@ -58,6 +58,7 @@ No macOS/Linux: source venv/bin/activate
 No Windows: venv\Scripts\activate  
 
 3. Instale as dependências:  
+```cmd
 pip install -r requirements.txt  
 
 4. Configure sua chave API da OpenAI:  
