@@ -16,22 +16,26 @@ class LlmChatClient:
         self.client = ChatOpenAI(model = modelo, temperature=criatividade)
 
     def get_chat_answer(self):
-        self.system_message = SystemMessage(content="You are a helpful AI assistant")
         
         self.history_chat = []
 
         while True:
-            self.user_prompt = input("\nPrompt: ")
-            if self.user_prompt.lower() == "exit":
+            user_prompt = input("\nPrompt: ")
+
+            if user_prompt.lower() == "exit":
                 break
 
-            user_input = HumanMessage(content=self.user_prompt)
+            user_input = HumanMessage(content=user_prompt)
+
+            message = [SystemMessage(content="You are a helpful AI assistant"),
+                       user_input
+                       ]
 
             self.history_chat.append(user_input.content)
 
             resposta = ""
 
-            for chunk in self.client.stream(self.user_prompt):
+            for chunk in self.client.stream(message):
                 print(chunk.content, end='', flush=True)
                 resposta  += chunk.content 
             
