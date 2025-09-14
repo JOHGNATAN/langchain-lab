@@ -58,13 +58,15 @@ cd seu-repositorio
 python -m venv venv  
 ```
 3. Ativação:
-No macOS/Linux:
 ```cmd 
+## No macOS/Linux:
+
 source venv/bin/activate 
 ```
 
-No Windows: 
 ```cmd
+##No Windows: 
+
 venv\Scripts\activate  
 ```
 4. Instale as dependências:  
