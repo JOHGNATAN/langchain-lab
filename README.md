@@ -7,7 +7,7 @@ Este projeto é um chatbot simples construído em Python utilizando a biblioteca
 ## Estrutura do Projeto
 
 LANGCHAIN/  
-│
+│  
 ├── app/  
 │   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── history_chats/        # Histórico das conversas exportadas  
 │   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── secrets/              # Arquivos com chaves secretas  
