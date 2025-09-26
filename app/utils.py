@@ -1,5 +1,5 @@
 from langchain_groq import ChatGroq
-from langchain.schema import HumanMessage, SystemMessage
+from langchain.schema import HumanMessage, SystemMessage, AIMessage
 from datetime import datetime
 import json
 import os
@@ -12,32 +12,55 @@ def load_secrets():
 
 
 class LlmChatClient:
-    def __init__(self, modelo: str, criatividade: float):
+    def __init__(self, modelo: str, criatividade: float, reasoning_effort: str):
         self.client = ChatGroq(model = modelo, temperature=criatividade)
     
     def content_guardrail(self, input_text: str):
     
-        message = [
-            SystemMessage(content="""Analise o seguinte texto e indique se ele contém algum dos seguintes tipos de conteúdo sensível.
+        system = SystemMessage(content="""Analise e determine se ele envolve, mesmo de forma implícita, alguma das categorias de conteúdo sensível listadas abaixo.
 
-                                      Categorias:
-                                      1. Violência
-                                      2. Conteúdo sexual
-                                      3. Discurso de ódio
-                                      4. Automutilação ou suicídio
-                                      5. Abuso infantil ou exploração
-                                      6. Drogas ou substâncias ilícitas
+                                            Importante:
+                                            - O conteúdo pode ser hipotético, conceitual, especulativo, criativo ou apresentado em perguntas, diálogos, narrativas ou contextos ficcionais.
+                                            - A simples menção, intenção de discutir, explorar ou referenciar o tema já é suficiente para considerar a categoria como "presente".
+                                            - O texto **não precisa** descrever os atos de forma gráfica ou explícita para ser considerado sensível.
+        
+                                            Categorias:
+                                            1. Violência
+                                            2. Conteúdo sexual
+                                            3. Discurso de ódio
+                                            4. Automutilação ou suicídio
+                                            5. Abuso ou exploração infantil
+                                            6. Drogas ou substâncias ilícitas
+                                            7. Atividades ilegais ou criminosas
+                                            8. Terrorismo ou extremismo violento
+                                            9. Informações pessoais sensíveis
+        
+                                            
+                                            Instruções de Resposta:
+                                            Retorne:
+                                            - True → Se qualquer uma das categorias estiver presente ou for discutida, mesmo indiretamente.
+                                            - False → Se nenhuma categoria estiver presente ou referida de forma alguma.
+                                    """)
+        
+        few_shot_examples = [
+                                HumanMessage(content="Era uma vez um garoto que pensava em tirar a própria vida."),
+                                AIMessage(content="True"),
 
-                                      Retorne True caso qualquer uma das categorias esteja presente no texto, caso contrário retorne False.
-                                    """),
+                                HumanMessage(content="Como posso melhorar minha produtividade no trabalho?"),
+                                AIMessage(content="False"),
 
-            HumanMessage(content=input_text)
-        ]
+                                HumanMessage(content="Quais são os efeitos de se cortar para aliviar a dor emocional?"),
+                                AIMessage(content="True"),
+                            ]
+
+        human = HumanMessage(content=input_text)
+
+        message = [system] + few_shot_examples + [human]
 
         guardrail_response = self.client.invoke(message)
-        print(guardrail_response.content)
+        
+        return guardrail_response.content.strip().lower() == "true"
 
-        return guardrail_response.content
 
     def get_chat_answer(self):
         
@@ -49,21 +72,26 @@ class LlmChatClient:
             if user_prompt.lower() == "exit":
                 break
 
-            user_input = HumanMessage(content=user_prompt)
+            validator = self.content_guardrail(user_prompt)
+            if not validator:
+                user_input = HumanMessage(content=user_prompt)
 
-            message = [SystemMessage(content="You are a helpful AI assistant"),
-                       user_input
-                       ]
+                message = [SystemMessage(content="You are a helpful AI assistant"),
+                        user_input
+                        ]
 
-            self.history_chat.append(user_input.content)
+                self.history_chat.append(user_input.content)
 
-            resposta = ""
+                resposta = ""
 
-            for chunk in self.client.stream(message):
-                print(chunk.content, end='', flush=True)
-                resposta  += chunk.content 
-            
-            self.history_chat.append(resposta)
+                for chunk in self.client.stream(message):
+                    print(chunk.content, end='', flush=True)
+                    resposta  += chunk.content 
+                
+                self.history_chat.append(resposta)
+            else:
+                print("Conteúdo não permitido. Tente novamente.")
+                continue
 
         return self.history_chat
     
