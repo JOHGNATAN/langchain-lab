@@ -33,8 +33,8 @@ LANGCHAIN/
 
 - Python 3.13.5
 - [LangChain](https://python.langchain.com/)
-- [LangChain OpenAI](https://python.langchain.com/en/latest/modules/llms/integrations/openai.html)
-- OpenAI GPT-4o-mini (via API)
+- [LangChain Groq](https://console.groq.com/docs/model/openai/gpt-oss-120b)
+- openai/gpt-oss-120b (via API)
 
 ---
 
