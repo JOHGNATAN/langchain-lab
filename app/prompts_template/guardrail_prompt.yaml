@@ -1,4 +1,4 @@
-content_guardrail_prompt: |
+guardrail_prompt_template: |
   Analise e determine se ele envolve, mesmo de forma implícita, alguma das categorias de conteúdo sensível listadas abaixo.
 
   Importante:

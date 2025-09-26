@@ -8,9 +8,9 @@ class LlmChatClient:
     def __init__(self, modelo: str, criatividade: float):
         self.client = ChatGroq(model = modelo, temperature=criatividade)
     
-    def content_guardrail(self, prompt_template, input_text: str):
+    def content_guardrail(self, guardrail_prompt_template, input_text: str):
     
-        system = SystemMessage(content = prompt_template)
+        system = SystemMessage(content = guardrail_prompt_template)
         
         few_shot_examples = [
                                 HumanMessage(content="Era uma vez um garoto que pensava em tirar a própria vida."),
@@ -32,7 +32,7 @@ class LlmChatClient:
         return guardrail_response.content.strip().lower() == "true"
 
 
-    def get_chat_answer(self):
+    def get_chat_answer(self, guardrail_prompt_template, llm_prompt_template: str):
         
         self.history_chat = []
 
@@ -42,11 +42,11 @@ class LlmChatClient:
             if user_prompt.lower() == "exit":
                 break
 
-            validator = self.content_guardrail(user_prompt)
+            validator = self.content_guardrail(guardrail_prompt_template, user_prompt)
             if not validator:
                 user_input = HumanMessage(content=user_prompt)
 
-                message = [SystemMessage(content="You are a helpful AI assistant"),
+                message = [SystemMessage(content = llm_prompt_template),
                         user_input
                         ]
 
