@@ -1,6 +1,6 @@
-# Chatbot com LangChain e GPT-4o-mini
+# Chatbot com LangChain e openai/gpt-oss-120b
 
-Este projeto é um chatbot simples construído em Python utilizando a biblioteca LangChain e o modelo GPT-4o-mini da OpenAI. O chatbot permite conversas via terminal e exporta o histórico de perguntas e respostas em arquivos JSON organizados por data.
+Este projeto é um chatbot simples construído em Python utilizando a biblioteca LangChain e o modelo openai/gpt-oss-120b da OpenAI. O chatbot permite conversas via terminal e exporta o histórico de perguntas e respostas em arquivos JSON organizados por data.
 
 ---
 
@@ -22,7 +22,7 @@ LANGCHAIN/
 
 ## Funcionalidades
 
-- Interação em tempo real com um modelo de linguagem GPT-4o-mini.
+- Interação em tempo real com um modelo de linguagem openai/gpt-oss-120b.
 - Histórico da conversa armazenado em formato JSON.
 - Configuração do modelo e temperatura (criatividade) personalizáveis.
 - Facilidade para extensão e integração com outras interfaces.
