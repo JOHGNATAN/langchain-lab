@@ -1,4 +1,4 @@
-from langchain_openai import ChatOpenAI
+from langchain_groq import ChatGroq
 from langchain.schema import HumanMessage, SystemMessage
 from datetime import datetime
 import json
@@ -8,12 +8,36 @@ def load_secrets():
     with open('secrets/secrets.json', 'r') as file:
         secrets = json.load(file)
 
-    os.environ["OPENAI_API_KEY"] = secrets["open_ai_key"]
+    os.environ["GROQ_API_KEY"] = secrets["GROQ_API_KEY"]
 
 
 class LlmChatClient:
     def __init__(self, modelo: str, criatividade: float):
-        self.client = ChatOpenAI(model = modelo, temperature=criatividade)
+        self.client = ChatGroq(model = modelo, temperature=criatividade)
+    
+    def content_guardrail(self, input_text: str):
+    
+        message = [
+            SystemMessage(content="""Analise o seguinte texto e indique se ele contém algum dos seguintes tipos de conteúdo sensível.
+
+                                      Categorias:
+                                      1. Violência
+                                      2. Conteúdo sexual
+                                      3. Discurso de ódio
+                                      4. Automutilação ou suicídio
+                                      5. Abuso infantil ou exploração
+                                      6. Drogas ou substâncias ilícitas
+
+                                      Retorne True caso qualquer uma das categorias esteja presente no texto, caso contrário retorne False.
+                                    """),
+
+            HumanMessage(content=input_text)
+        ]
+
+        guardrail_response = self.client.invoke(message)
+        print(guardrail_response.content)
+
+        return guardrail_response.content
 
     def get_chat_answer(self):
         
@@ -42,6 +66,7 @@ class LlmChatClient:
             self.history_chat.append(resposta)
 
         return self.history_chat
+    
 
     def export_chat_history(self, chat_list: list):
         
@@ -61,5 +86,9 @@ class LlmChatClient:
         with open(f"{self.destino}", "w", encoding='utf-8') as file:
             self.export_file = json.dump(self.history, file, ensure_ascii=False, indent=4)
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> langchain_feature
             
         
