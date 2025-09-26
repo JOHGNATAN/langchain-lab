@@ -101,12 +101,12 @@ class LlmChatClient:
         self.history = []
 
         for i in range(0, len(chat_list), 2):
-            self.pergunta = chat_list[i]
-            self.resposta = chat_list[i + 1]
+            pergunta = chat_list[i]
+            resposta = chat_list[i + 1]
 
             self.history.append({
-                                'User': self.pergunta,
-                                'IA': self.resposta
+                                'User': pergunta,
+                                'IA': resposta
                             })
         
         self.destino = f"history_chats/chat_history_{datetime.now().strftime('%Y_%m_%d')}.json"
