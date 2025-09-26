@@ -12,7 +12,7 @@ def load_secrets():
 
 
 class LlmChatClient:
-    def __init__(self, modelo: str, criatividade: float, reasoning_effort: str):
+    def __init__(self, modelo: str, criatividade: float):
         self.client = ChatGroq(model = modelo, temperature=criatividade)
     
     def content_guardrail(self, input_text: str):
