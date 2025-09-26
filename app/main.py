@@ -1,4 +1,5 @@
-from utils import LlmChatClient, load_secrets
+from chat_client import LlmChatClient
+from utils import load_secrets, load_prompt
 
 
 if __name__ == "__main__":

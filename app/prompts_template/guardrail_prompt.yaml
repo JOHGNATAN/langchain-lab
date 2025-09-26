@@ -1,0 +1,23 @@
+content_guardrail_prompt: |
+  Analise e determine se ele envolve, mesmo de forma implícita, alguma das categorias de conteúdo sensível listadas abaixo.
+
+  Importante:
+  - O conteúdo pode ser hipotético, conceitual, especulativo, criativo ou apresentado em perguntas, diálogos, narrativas ou contextos ficcionais.
+  - A simples menção, intenção de discutir, explorar ou referenciar o tema já é suficiente para considerar a categoria como "presente".
+  - O texto **não precisa** descrever os atos de forma gráfica ou explícita para ser considerado sensível.
+
+  Categorias:
+  1. Violência
+  2. Conteúdo sexual
+  3. Discurso de ódio
+  4. Automutilação ou suicídio
+  5. Abuso ou exploração infantil
+  6. Drogas ou substâncias ilícitas
+  7. Atividades ilegais ou criminosas
+  8. Terrorismo ou extremismo violento
+  9. Informações pessoais sensíveis
+
+  Instruções de Resposta:
+  Retorne:
+  - True → Se qualquer uma das categorias estiver presente ou for discutida, mesmo indiretamente.
+  - False → Se nenhuma categoria estiver presente ou referida de forma alguma.
