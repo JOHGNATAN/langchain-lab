@@ -1,6 +1,6 @@
-# Chatbot com LangChain e openai/gpt-oss-120b
+# Chatbot com LangChain e gpt-oss-120b
 
-Este projeto é um chatbot simples construído em Python utilizando a biblioteca LangChain e o modelo openai/gpt-oss-120b da OpenAI. O chatbot permite conversas via terminal e exporta o histórico de perguntas e respostas em arquivos JSON organizados por data.
+Este projeto é um chatbot simples construído em Python utilizando a biblioteca LangChain e o modelo gpt-oss-120b da OpenAI. O chatbot permite conversas via terminal e exporta o histórico de perguntas e respostas em arquivos JSON organizados por data.
 
 ---
 
@@ -34,7 +34,7 @@ LANGCHAIN/
 - Python 3.13.5
 - [LangChain](https://python.langchain.com/)
 - [LangChain Groq](https://console.groq.com/docs/model/openai/gpt-oss-120b)
-- openai/gpt-oss-120b (via API)
+- gpt-oss-120b (via API)
 
 ---
 
